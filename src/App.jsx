@@ -8,12 +8,12 @@ function App() {
   const [input, setInput] = useState('')
   const [isChatOpen, setIsChatOpen] = useState(false)
   const chatBoxRef = useRef(null)
-
+  const apiUrl = import.meta.env.VITE_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     // Envía la solicitud al backend
-    const response = await fetch('http://127.0.0.1:3000/chat', {
+    const response = await fetch(`${apiUrl}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
